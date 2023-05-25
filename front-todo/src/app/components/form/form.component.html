@@ -1,0 +1,17 @@
+<div class="content_form">
+  <form (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+    <div class="form_inputs">
+      <div class="form_item">
+        <input type="text" name="title" placeholder="Titulo" formControlName="title" required class="input_title">
+        <div *ngIf="(submitted || taskForm.get('title')?.touched) && taskForm.get('title')?.errors?.['required']"
+          class="message_error">Campo requerido</div>
+      </div>
+      <div class="form_item">
+        <input type="text" name="description" placeholder="Texto" formControlName="description" required class="input_description">
+        <div *ngIf="(submitted || taskForm.get('description')?.touched) && taskForm.get('description')?.errors?.['required']"
+          class="message_error">Campo requerido</div>
+      </div>
+    </div>
+    <button type="submit"><mat-icon svgIcon="plus"></mat-icon></button>
+  </form>
+</div>

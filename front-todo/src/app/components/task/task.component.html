@@ -1,0 +1,19 @@
+<div class="content_task">
+  <h3>Tareas</h3>
+  <div class="content_list">
+    <ng-container *ngIf="tasks.length == 0">
+      Sin tareas
+    </ng-container>
+    <ng-container *ngIf="tasks.length > 0">
+      <div class="item_task" *ngFor="let task of tasks">
+        <div [ngClass]="{'finished': task.finished}" (click)="finishedTask(task.id)">
+          <h4>{{ task.title }}</h4>
+          <p>{{ task.description }}</p>
+        </div>
+        <div (click)="deleteTask(task.id)">
+          <button><mat-icon svgIcon="delete"></mat-icon></button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
